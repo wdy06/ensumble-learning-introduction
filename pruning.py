@@ -67,21 +67,22 @@ def criticalscore(node, score_max):
         node.left = criticalscore(node.left, score_max)
         node.right = criticalscore(node.right, score_max)
         # delete node
-        leftisleaf = not isinstance(node.left, PrunedTree)
-        rightisleaf = not isinstance(node.right, PrunedTree)
-        # leave one leaf if both are leaf
-        if leftisleaf and rightisleaf:
-            return node.left
-        # leave branch if which one is leaf
-        elif leftisleaf and not rightisleaf:
-            return node.right
-        elif not leftisleaf and rightisleaf:
-            return node.left
-        # leave node with better score if both are branch
-        elif node.left.score < node.right.score:
-            return node.left
-        else:
-            return node.right
+        if node.score > score_max:
+            leftisleaf = not isinstance(node.left, PrunedTree)
+            rightisleaf = not isinstance(node.right, PrunedTree)
+            # leave one leaf if both are leaf
+            if leftisleaf and rightisleaf:
+                return node.left
+            # leave branch if which one is leaf
+            elif leftisleaf and not rightisleaf:
+                return node.right
+            elif not leftisleaf and rightisleaf:
+                return node.left
+            # leave node with better score if both are branch
+            elif node.left.score < node.right.score:
+                return node.left
+            else:
+                return node.right
 
     # return current node
     return node
