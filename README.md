@@ -3,3 +3,4 @@
 
 - [決定木その1](http://rikeiin.hatenablog.com/entry/2019/09/23/184907)
 - [決定木その2](http://rikeiin.hatenablog.com/entry/2019/10/18/134301)
+- [プルーニング](http://rikeiin.hatenablog.com/entry/2019/11/10/165506)
